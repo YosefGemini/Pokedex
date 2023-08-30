@@ -18,8 +18,9 @@ class _WelcomeState extends State<Welcome> {
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations(
         [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
-    return Scaffold(
-        body: Container(
+    return SafeArea(
+        child: Scaffold(
+            body: Container(
       width: double.infinity,
       height: double.infinity,
       decoration: const BoxDecoration(
@@ -84,6 +85,6 @@ class _WelcomeState extends State<Welcome> {
                   text: "Registrarse"))
         ],
       ),
-    ));
+    )));
   }
 }

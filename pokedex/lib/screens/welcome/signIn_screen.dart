@@ -82,6 +82,7 @@ class _SignInState extends State<SignIn> {
         //   backgroundColor: Color(0xFFF97F6F),
         // ),
         body: Container(
+      alignment: Alignment.center,
       width: double.infinity,
       height: double.infinity,
       decoration: const BoxDecoration(
@@ -101,33 +102,35 @@ class _SignInState extends State<SignIn> {
       ),
       child: Padding(
           padding: const EdgeInsets.all(20.0),
-          child: Form(
-            key: _loginForm,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                CustomInput(
-                    controller: _usernameController,
-                    label: "Usuario",
-                    validator: Validators.validateNotNull),
-                SizedBox(height: 16.0),
-                CustomInput(
-                    controller: _passwordController,
-                    label: "Contraseña",
-                    isPassword: true,
-                    validator: Validators.validateNotNull),
-                SizedBox(height: 16.0),
-                CostumButton(callback: _login, text: "Iniciar Sesión"),
-                SizedBox(height: 16.0),
-                CostumButton(
-                    callback: () {
-                      final route =
-                          MaterialPageRoute(builder: (context) => Welcome());
-                      Navigator.push(context, route);
-                    },
-                    text: "Regresar")
-              ],
+          child: SingleChildScrollView(
+            child: Form(
+              key: _loginForm,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  CustomInput(
+                      controller: _usernameController,
+                      label: "Usuario",
+                      validator: Validators.validateNotNull),
+                  SizedBox(height: 16.0),
+                  CustomInput(
+                      controller: _passwordController,
+                      label: "Contraseña",
+                      isPassword: true,
+                      validator: Validators.validateNotNull),
+                  SizedBox(height: 16.0),
+                  CostumButton(callback: _login, text: "Iniciar Sesión"),
+                  SizedBox(height: 16.0),
+                  CostumButton(
+                      callback: () {
+                        final route =
+                            MaterialPageRoute(builder: (context) => Welcome());
+                        Navigator.push(context, route);
+                      },
+                      text: "Regresar")
+                ],
+              ),
             ),
           )),
     ));

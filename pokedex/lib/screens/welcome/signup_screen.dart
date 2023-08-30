@@ -81,6 +81,9 @@ class _SignUpState extends State<SignUp> {
       //   backgroundColor: Color(0xFFF97F6F),
       // ),
       body: Container(
+        alignment: Alignment.center,
+        width: double.infinity,
+        height: double.infinity,
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/fondo_login.jpg'),
@@ -89,54 +92,56 @@ class _SignUpState extends State<SignUp> {
         ),
         child: Padding(
             padding: const EdgeInsets.all(16.0),
-            child: Form(
-              key: _signUpForm,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    'Ingrese sus datos para registrarse',
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.normal,
-                      color: Colors.black87,
+            child: SingleChildScrollView(
+              child: Form(
+                key: _signUpForm,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      'Ingrese sus datos para registrarse',
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.normal,
+                        color: Colors.black87,
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 30.0),
-                  CustomInput(
-                      controller: _nameController,
-                      label: "Nombre Completo",
-                      validator: Validators.validateName),
-                  const SizedBox(height: 16.0),
-                  CustomInput(
-                      controller: _usernameController,
-                      label: "Nombre de usuario",
-                      validator: Validators.validateUsername),
-                  const SizedBox(height: 16.0),
-                  CustomInput(
-                      controller: _emailController,
-                      label: "Correo Electronico",
-                      validator: Validators.validateEmail),
-                  const SizedBox(height: 16.0),
-                  CustomInput(
-                      controller: _passwordController,
-                      label: "Contraseña",
-                      validator: Validators.validatePassword,
-                      isPassword: true),
-                  const SizedBox(height: 24.0),
-                  CostumButton(
-                    callback: _signUpFunc,
-                    text: "Registrarse",
-                  ),
-                  const SizedBox(height: 16.0),
-                  CostumButton(
-                      callback: () {
-                        final route =
-                            MaterialPageRoute(builder: (context) => Welcome());
-                        Navigator.push(context, route);
-                      },
-                      text: "Regresar"),
-                ],
+                    const SizedBox(height: 30.0),
+                    CustomInput(
+                        controller: _nameController,
+                        label: "Nombre Completo",
+                        validator: Validators.validateName),
+                    const SizedBox(height: 16.0),
+                    CustomInput(
+                        controller: _usernameController,
+                        label: "Nombre de usuario",
+                        validator: Validators.validateUsername),
+                    const SizedBox(height: 16.0),
+                    CustomInput(
+                        controller: _emailController,
+                        label: "Correo Electronico",
+                        validator: Validators.validateEmail),
+                    const SizedBox(height: 16.0),
+                    CustomInput(
+                        controller: _passwordController,
+                        label: "Contraseña",
+                        validator: Validators.validatePassword,
+                        isPassword: true),
+                    const SizedBox(height: 24.0),
+                    CostumButton(
+                      callback: _signUpFunc,
+                      text: "Registrarse",
+                    ),
+                    const SizedBox(height: 16.0),
+                    CostumButton(
+                        callback: () {
+                          final route = MaterialPageRoute(
+                              builder: (context) => Welcome());
+                          Navigator.push(context, route);
+                        },
+                        text: "Regresar"),
+                  ],
+                ),
               ),
             )),
       ),
